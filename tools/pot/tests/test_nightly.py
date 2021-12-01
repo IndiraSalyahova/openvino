@@ -14,36 +14,6 @@ from .utils.config import get_engine_config, merge_configs
 init_logger(level='INFO')
 
 TEST_MODELS_DEFAULT = [
-    ('ssd512', 'caffe', 'FP32', {
-        'performance': {'map': 0.9088},
-        'mixed': {'map': 0.904}}),
-    ('googlenet-v3', 'tf', 'FP32', {
-        'performance': {'accuracy@top1': 0.7793, 'accuracy@top5': 0.9378},
-        'mixed': {'accuracy@top1': 0.7793, 'accuracy@top5': 0.9378}}),
-    ('squeezenet1.1', 'caffe', 'FP32', {
-        'performance': {'accuracy@top1': 0.5772, 'accuracy@top5': 0.808},
-        'mixed': {'accuracy@top1': 0.57706, 'accuracy@top5': 0.808}}),
-    ('mobilenet-v1-1.0-224-tf', 'tf', 'FP32', {
-        'performance': {'accuracy@top1': 0.70896, 'accuracy@top5': 0.89792},
-        'mixed': {'accuracy@top1': 0.70922, 'accuracy@top5': 0.89806}}),
-    ('mobilenet-v2-pytorch', 'pytorch', 'FP32', {
-        'performance': {'accuracy@top1': 0.71552, 'accuracy@top5': 0.90222},
-        'mixed': {'accuracy@top1': 0.71512, 'accuracy@top5': 0.90172}}),
-    ('resnet-50-pytorch', 'pytorch', 'FP32', {
-        'performance': {'accuracy@top1': 0.75936, 'accuracy@top5': 0.92854},
-        'mixed': {'accuracy@top1': 0.75964, 'accuracy@top5': 0.92816}}),
-    ('googlenet-v3-pytorch', 'pytorch', 'FP32', {
-        'performance': {'accuracy@top1': 0.77562, 'accuracy@top5': 0.9363},
-        'mixed': {'accuracy@top1': 0.77562, 'accuracy@top5': 0.9363}}),
-    ('densenet-121', 'caffe', 'FP32', {
-        'performance': {'accuracy@top1': 0.73908, 'accuracy@top5': 0.91728},
-        'mixed': {'accuracy@top1': 0.7389, 'accuracy@top5': 0.91714}}),
-    # ('mobilenet-ssd', 'caffe', 'FP32', {
-    #     'performance': {'map': 0.71978},
-    #     'mixed': {'map': 0.71931}}),
-    ('octave-resnet-26-0.25', 'mxnet', 'FP32', {
-        'performance': {'accuracy@top1': 0.7581, 'accuracy@top5': 0.9256},
-        'mixed': {'accuracy@top1': 0.759, 'accuracy@top5': 0.92466}}),
     ('ssd_mobilenet_v1_coco', 'tf', 'FP16', {
         'performance': {'coco_precision': 0.2312},
         'mixed': {'coco_precision': 0.2314}})
@@ -88,7 +58,7 @@ def test_default_quantization(model_params, tmp_path, models, algorithm, preset)
                      expected_accuracy=expected_accuracy_dict[preset],
                      tmp_path=tmp_path)
 
-
+"""
 @pytest.mark.parametrize('model_params', TEST_MODELS_ACC_AWARE,
                          ids=['{}_{}'.format(m[0], m[1]) for m in TEST_MODELS_ACC_AWARE])
 def test_accuracy_aware_quantization(model_params, tmp_path, models, algorithm, preset):
@@ -119,7 +89,7 @@ def test_accuracy_aware_quantization(model_params, tmp_path, models, algorithm, 
                      expected_accuracy=expected_accuracy_dict[preset],
                      tmp_path=tmp_path)
 
-
+"""
 def run_quantization(models, model_name, model_framework, algorithm_config,
                      expected_accuracy, tmp_path, tolerance=0.001, model_precision='FP32'):
     model = models.get(model_name, model_framework, tmp_path, model_precision)
