@@ -244,11 +244,13 @@ def symmetric_range(node, fq, weights_stats,
         node_output = get_fake_quantize_first_output(fq)
         max_level = weights_stats[node_output.fullname]['max']
         max_level = fix_zero_filters_symmetric(max_level)
+        print(name, 'fix_zero_filters_symmetric')
         min_level = -max_level
     elif name in batch_inputs_stats:
         max_level = batch_inputs_stats[name]['max']
         min_level = batch_inputs_stats[name]['min']
         max_level = fix_zero_filters_symmetric(max_level)
+        print(name, 'fix_zero_filters_symmetric')
         signed = fake_quantize_config[fq.fullname]['signed']
         min_level = np.zeros(max_level.shape) if np.all(min_level >= 0) and not signed else \
             -max_level * fq.levels / (fq.levels - 2)
@@ -274,6 +276,7 @@ def asymmetric_range(node, fq, weights_stats,
             'WARNING: Fake quantize node {} is missed'.format(fq.fullname))
 
     max_level, min_level = fix_zero_filters_asymmetric(max_level, min_level)
+    print('fix_zero_filters_asymmetric', name)
     min_level = np.where(min_level < 0.0, min_level, 0.0)
     max_level = np.where(max_level > 0.0, max_level, 0.0)
     if unify_zp:
