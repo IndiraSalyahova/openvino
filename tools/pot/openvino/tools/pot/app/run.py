@@ -128,8 +128,8 @@ def optimize(config):
     else:
         compressed_model = pipeline.run(model)
 
-    if not config.model.keep_uncompressed_weights:
-        compress_model_weights(compressed_model)
+    #if not config.model.keep_uncompressed_weights:
+    #    compress_model_weights(compressed_model)
 
     save_model(compressed_model,
                os.path.join(config.model.exec_log_dir, 'optimized'),
