@@ -1,0 +1,12 @@
+INFO:openvino.tools.pot.app.run:Output log dir: ./results/ssd_mobilenet_v1_coco_DefaultQuantization/2021-12-02_12-21-09
+INFO:openvino.tools.pot.app.run:Creating pipeline:
+ Algorithm: DefaultQuantization
+ Parameters:
+	preset                     : performance
+	stat_subset_size           : 300
+	target_device              : ANY
+	model_type                 : None
+	dump_intermediate_model    : False
+	inplace_statistics         : True
+	exec_log_dir               : ./results/ssd_mobilenet_v1_coco_DefaultQuantization/2021-12-02_12-21-09
+ ===========================================================================

@@ -1,0 +1,25 @@
+INFO:openvino.tools.pot.app.run:Output log dir: ./results/ssd_mobilenet_v1_coco_DefaultQuantization/2021-12-02_11-59-54
+INFO:openvino.tools.pot.app.run:Creating pipeline:
+ Algorithm: DefaultQuantization
+ Parameters:
+	preset                     : performance
+	stat_subset_size           : 300
+	target_device              : ANY
+	model_type                 : None
+	dump_intermediate_model    : False
+	inplace_statistics         : True
+	exec_log_dir               : ./results/ssd_mobilenet_v1_coco_DefaultQuantization/2021-12-02_11-59-54
+ ===========================================================================
+INFO:openvino.tools.pot.statistics.collector:Start computing statistics for algorithms : DefaultQuantization
+INFO:openvino.tools.pot.statistics.collector:Computing statistics finished
+INFO:openvino.tools.pot.pipeline.pipeline:Start algorithm: DefaultQuantization
+INFO:openvino.tools.pot.algorithms.quantization.default.algorithm:Start computing statistics for algorithm : ActivationChannelAlignment
+INFO:openvino.tools.pot.algorithms.quantization.default.algorithm:Computing statistics finished
+INFO:openvino.tools.pot.algorithms.quantization.default.algorithm:Start computing statistics for algorithms : MinMaxQuantization,FastBiasCorrection
+INFO:openvino.tools.pot.algorithms.quantization.default.algorithm:Computing statistics finished
+INFO:openvino.tools.pot.pipeline.pipeline:Finished: DefaultQuantization
+ ===========================================================================
+INFO:openvino.tools.pot.pipeline.pipeline:Evaluation of generated model
+INFO:openvino.tools.pot.engines.ac_engine:Start inference on the whole dataset
+INFO:openvino.tools.pot.engines.ac_engine:Inference finished
+INFO:openvino.tools.pot.app.run:coco_precision             : 0.0010605395704533743
