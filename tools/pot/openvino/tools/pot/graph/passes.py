@@ -112,7 +112,7 @@ class InsertFakeQuantize(BackReplacementPattern):
     @staticmethod
     def quantize_only_input(node: Node):
         if node.type in ['Interpolate', 'Power', 'ReduceMean', 'NormalizeL2',
-                         'Assign', 'PReLU', 'ReLU', 'Sigmoid', 'Tanh', 'Clamp', 'MVN']:
+                         'Assign', 'PReLU', 'ReLU', 'Sigmoid', 'Tanh', 'Clamp']:
             return True
         # ScaleSift case, FQ only for input
         if node.type == 'Multiply' and nu.check_input_data_is_const(node, 1):
