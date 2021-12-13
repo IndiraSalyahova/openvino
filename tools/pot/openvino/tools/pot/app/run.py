@@ -136,7 +136,7 @@ def optimize(config):
                model_name=config.model.model_name)
 
     # evaluating compressed model if need
-    if config.engine.evaluate:
-        return pipeline.evaluate(compressed_model)
+    #if config.engine.evaluate:
+    return pipeline.evaluate(compressed_model)
 
     return None
