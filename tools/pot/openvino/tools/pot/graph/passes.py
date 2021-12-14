@@ -233,6 +233,11 @@ class FakeQuantizePropagation(BackReplacementPattern):
                 if type_node in (np.int32, np.int64, bool):
                     node_int_fq.append(fq.name)
                     fq_removal.find_and_remove_node(graph, fq.name)
+                    continue
+            if get_node_input(fq, 0) is not None and get_node_input(fq, 0).type == 'MatMul' and get_all_node_outputs(fq)[0].type == 'Add':
+                node_add = get_all_node_outputs(fq)[0]
+                if get_node_input(node_add, 1) != 'Const':
+                    fq_removal.find_and_remove_node(graph, fq.name)
 
     @property
     def quantize_inputs(self):
