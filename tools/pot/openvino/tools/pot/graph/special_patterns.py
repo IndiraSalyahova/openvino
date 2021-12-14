@@ -244,9 +244,10 @@ def create_equal_logicalnot_pattern():
     return pattern.set_name('equal_logicalnot').pattern
 
 
-@registry_ignore_patterns('blocks')
+"""@registry_ignore_patterns('blocks')
 def create_matmul_non_const_add():
     pattern = PatternBuilder()
     pattern.append_single_op('MatMul', 'matmul')
     pattern.append_single_op('Add', 'add')
     return pattern.set_name('matmul_non_const_input').pattern
+"""
