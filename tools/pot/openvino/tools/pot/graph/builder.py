@@ -143,7 +143,7 @@ def build_graph_for_node(model, input_name, input_shape, node, remove_bias=False
     graph.ir_v10 = True
 
     # Add the neccessary attribute to the new graph
-    """src_node = get_node_by_name(graph, node.name)
+    src_node = get_node_by_name(graph, node.name)
     weights_node = get_node_input(src_node, 1)
     weights_node = get_node_input(weights_node, 0) \
         if weights_node.type == 'FakeQuantize' else weights_node
