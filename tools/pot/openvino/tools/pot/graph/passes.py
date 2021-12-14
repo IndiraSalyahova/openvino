@@ -500,7 +500,7 @@ class RemoveFakeQuantize:
             while True:
                 input_node = get_node_inputs(input_node)
                 input_node = delete_const(input_node)
-                if len(input_node) > 1:
+                if len(input_node) > 1 or len(input_node) == 0:
                     return False
                 input_node = input_node[0]
                 if input_node.type in ['Convolution', 'GroupConvolution', 'MatMul']:
@@ -524,15 +524,7 @@ class RemoveFakeQuantize:
 
             fq_1_input = get_node_inputs(fq_1)[0]
             fq_2_input = get_node_inputs(fq_2)[0]
-            #if len(get_node_inputs(fq_1_input)) > 1 or len(get_node_inputs(fq_2_input)) > 1:
-            #    print('AAAAAAA')
-
-
-
-            """for i, input_node in enumerate(inputs_node):
-                if check_childs_fq_is_eltwise(input_node):
-                    self.disconnect_fq_node(inputs_node[i])
-                    return"""
+            
 
         if target_device in ['VPU', 'GNA']:
             return
