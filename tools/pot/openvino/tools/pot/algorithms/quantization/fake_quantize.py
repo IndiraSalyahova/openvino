@@ -123,7 +123,7 @@ def compute_stats_layouts(config, model, qscheme=None):
     else:
         fq_configuration = get_configurations_by_qscheme(fq_configuration, qscheme)
 
-    change_configurations_by_model_type(model, config, fq_configuration, hardware_config)
+    #change_configurations_by_model_type(model, config, fq_configuration, hardware_config)
 
     # get all fake quantize nodes
     fq_nodes = get_nodes_by_type(model, ['FakeQuantize'])
