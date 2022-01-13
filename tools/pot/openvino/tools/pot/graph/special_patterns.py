@@ -159,6 +159,7 @@ def create_softmax_reshape_matmul_pattern():
     return pattern.set_name('softmax_reshape_matmul').pattern
 
 
+"""
 @registry_ignore_patterns('blocks')
 def create_softmax_reshape_transpose_matmul_pattern():
     pattern = PatternBuilder()
@@ -171,6 +172,7 @@ def create_softmax_reshape_transpose_matmul_pattern():
     pattern.pattern['edges'] += pattern_2.pattern['edges']
     pattern.insert_single_op([transp_out, softmax_out], None, 'MatMul', 'matmul')
     return pattern.set_name('softmax_reshape_transpose_matmul').pattern
+"""
 
 
 @registry_ignore_patterns('blocks')
