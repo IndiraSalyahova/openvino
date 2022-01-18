@@ -256,3 +256,12 @@ def create_equal_logicalnot_pattern():
     pattern.append_single_op('Equal', 'equal')
     pattern.append_single_op('LogicalNot', 'logicalnot')
     return pattern.set_name('equal_logicalnot').pattern
+
+
+@registry_ignore_patterns('blocks')
+def create_msha_pattern():
+    pattern = PatternBuilder()
+    pattern.append_single_op('Divide', 'divide')
+    pattern.append_op_const('MatMul', 'matmul')
+    pattern.insert_add_const()
+    return pattern.set_name('msha').pattern
